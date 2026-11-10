@@ -198,9 +198,14 @@ nav.top.solid .btn-light{background:var(--sea);border-color:var(--sea);color:#ff
 footer{background:var(--sea-d);color:rgba(255,255,255,.65);padding:56px 0;font-size:.85rem}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
 footer .logo{color:#fff}
-footer nav a{color:rgba(255,255,255,.8);text-decoration:none;margin-left:1.6rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+footer nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
 footer nav a:hover{color:#fff}
-footer nav a[href^="mailto"]{text-transform:none;letter-spacing:.02em;font-size:.85rem;font-weight:500}
+.foot-links{display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap}
+.foot-mail{color:#fff;text-decoration:none;font-size:.9rem}
+.foot-mail:hover{text-decoration:underline;text-underline-offset:4px}
+footer nav{display:flex;gap:1.6rem;flex-wrap:wrap}
+footer nav a{white-space:nowrap}
+.foot-copy{width:100%;font-size:.78rem;color:rgba(255,255,255,.55)}
 
 .mbar{display:none}
 @media(max-width:700px){
@@ -211,7 +216,11 @@ footer nav a[href^="mailto"]{text-transform:none;letter-spacing:.02em;font-size:
   .mbar span{font-family:var(--display);font-size:1.1rem;color:var(--ink)}
   .mbar .btn{padding:.8rem 1.1rem}
   footer{padding-bottom:110px}
-  footer nav a{margin:0 1.2rem 0 0}
+  footer .wrap{flex-direction:column;align-items:flex-start;gap:28px}
+  .foot-links{flex-direction:column;align-items:flex-start;gap:18px}
+  footer nav{gap:1.4rem}
+  .policy span:not(:last-child)::after{display:none}
+  .policy{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.4rem}
 }
 
 /* LIGHTBOX */
@@ -406,8 +415,8 @@ footer nav a[href^="mailto"]{text-transform:none;letter-spacing:.02em;font-size:
 <footer>
   <div class="wrap">
     <a href="#top" class="logo"><b>Sunset Cove 118</b><small>Seven Mile Beach · Grand Cayman</small></a>
-    <nav><a href="mailto:louie@sunstays.ky">louie@sunstays.ky</a><a href="#home">The home</a><a href="#hood">Neighbourhood</a><a href="https://book.sunstays.ky/listings/610431" target="_blank" rel="noopener">Book</a></nav>
-    <span style="width:100%;font-size:.78rem;color:rgba(255,255,255,.45)">© 2026 Sunset Cove 118</span>
+    <div class="foot-links"><a class="foot-mail" href="mailto:louie@sunstays.ky">louie@sunstays.ky</a><nav><a href="#home">The home</a><a href="#hood">Neighbourhood</a><a href="https://book.sunstays.ky/listings/610431" target="_blank" rel="noopener">Book</a></nav></div>
+    <span class="foot-copy">© 2026 Sunset Cove 118</span>
   </div>
 </footer>
 
