@@ -47,11 +47,12 @@ section{padding:128px 0}
 .btn-solid:hover{background:var(--sea-d);border-color:var(--sea-d)}
 .btn-light{background:#fff;color:var(--ink);border:1px solid #fff}
 .btn-light:hover{background:var(--sand);border-color:var(--sand)}
-.btn-line{color:#fff;border:1px solid rgba(255,255,255,.6)}
+.btn-line{color:#fff;border:1px solid rgba(255,255,255,.85);background:rgba(6,30,33,.48);backdrop-filter:blur(4px)}
 .btn-line:hover{background:rgba(255,255,255,.1);border-color:#fff}
 .btn-line-dark{color:var(--ink);border:1px solid var(--ink)}
 .btn-line-dark:hover{background:var(--ink);color:#fff}
 .arrow{display:inline-block;transition:transform .2s}
+.btn-light,.btn-solid{text-shadow:none}
 .btn:hover .arrow{transform:translateX(3px)}
 
 /* NAV */
@@ -59,10 +60,12 @@ nav.top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box
 nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
 .logo{text-decoration:none;color:#fff;display:flex;flex-direction:column;line-height:1.1}
 .logo b{font-family:var(--display);font-weight:400;font-size:1.35rem;letter-spacing:-.01em}
-.logo small{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;opacity:.8;margin-top:3px}
+.logo small{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;margin-top:3px}
 .navlinks{display:flex;gap:2.2rem;align-items:center}
-.navlinks a:not(.btn){color:#fff;text-decoration:none;font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
-.navlinks a:not(.btn):hover{opacity:1}
+.navlinks a:not(.btn){color:#fff;text-decoration:none;font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 1px 10px rgba(4,22,24,.6)}
+.navlinks a:not(.btn):hover{text-decoration:underline;text-underline-offset:6px}
+nav.top.solid .navlinks a:not(.btn){text-shadow:none}
+.logo{text-shadow:0 1px 10px rgba(4,22,24,.5)}nav.top.solid .logo{text-shadow:none}
 .navlinks .btn{padding:.75rem 1.3rem}
 nav.top.solid{background:rgba(251,249,245,.97);box-shadow:0 1px 0 var(--stone);backdrop-filter:blur(10px)}
 nav.top.solid .logo,nav.top.solid .navlinks a:not(.btn){color:var(--ink)}
@@ -73,13 +76,14 @@ nav.top.solid .btn-light{background:var(--sea);border-color:var(--sea);color:#ff
 /* HERO */
 .hero{position:relative;height:100vh;height:100svh;min-height:620px;display:flex;align-items:flex-end;color:#fff;padding-bottom:72px}
 .hero-img{position:absolute;inset:0;background:url('images/hero-cove-aerial.jpg') center 42%/cover no-repeat}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,30,33,.42) 0%,rgba(6,30,33,0) 22%,rgba(6,30,33,0) 45%,rgba(6,30,33,.72) 100%),linear-gradient(90deg,rgba(6,30,33,.35) 0%,rgba(6,30,33,0) 55%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,30,33,.62) 0%,rgba(6,30,33,.18) 18%,rgba(6,30,33,0) 32%,rgba(6,30,33,.25) 52%,rgba(6,30,33,.82) 100%),linear-gradient(90deg,rgba(6,30,33,.55) 0%,rgba(6,30,33,.2) 50%,rgba(6,30,33,.35) 100%)}
+.hero .wrap,.aerial .wrap,.book .wrap{text-shadow:0 1px 18px rgba(4,22,24,.45),0 1px 3px rgba(4,22,24,.35)}
 .hero .wrap{position:relative;z-index:2;width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
-.hero .label{color:rgba(255,255,255,.85)}
+.hero .label{color:#fff}
 .hero h1{color:#fff;font-size:clamp(3.6rem,10vw,8.5rem);line-height:.95;margin-bottom:1.6rem;letter-spacing:-.03em}
-.hero p{font-size:1.08rem;color:rgba(255,255,255,.9);max-width:34rem;margin-bottom:2.2rem}
+.hero p{font-size:1.08rem;color:#fff;max-width:34rem;margin-bottom:2.2rem}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
-.hero-facts{list-style:none;border-left:1px solid rgba(255,255,255,.35);padding-left:28px;display:grid;gap:10px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.88)}
+.hero-facts{list-style:none;border-left:1px solid rgba(255,255,255,.6);padding-left:28px;display:grid;gap:10px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#fff}
 .hero-facts b{font-family:var(--display);font-weight:300;font-size:1.5rem;letter-spacing:0;text-transform:none;margin-right:.55rem;color:#fff}
 @media(max-width:820px){.hero-facts{display:none}}
 .scroll-cue{position:absolute;left:50%;bottom:22px;z-index:2;width:1px;height:42px;background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.8));animation:cue 2.4s ease-in-out infinite}
@@ -128,11 +132,12 @@ nav.top.solid .btn-light{background:var(--sea);border-color:var(--sea);color:#ff
 /* AERIAL */
 .aerial{position:relative;height:88vh;min-height:520px;display:flex;align-items:center;color:#fff;padding:0}
 .aerial-img{position:absolute;inset:0;background:url('images/aerial-resort.jpg') center/cover no-repeat}
-.aerial::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,30,33,.78) 0%,rgba(6,30,33,.4) 42%,rgba(6,30,33,0) 70%)}
+.aerial::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,30,33,.88) 0%,rgba(6,30,33,.78) 38%,rgba(6,30,33,.3) 62%,rgba(6,30,33,.05) 85%)}
+@media(max-width:820px){.aerial::after{background:rgba(6,30,33,.72)}}
 .aerial .wrap{position:relative;z-index:2;width:100%}
-.aerial .label{color:var(--brass-l)}
+.aerial .label{color:#f3dfb8}
 .aerial h2{color:#fff;max-width:14ch}
-.aerial p{color:rgba(255,255,255,.88);max-width:30rem}
+.aerial p{color:#fff;max-width:30rem}
 
 /* AMENITIES */
 .amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;margin-top:64px}
@@ -170,14 +175,15 @@ nav.top.solid .btn-light{background:var(--sea);border-color:var(--sea);color:#ff
 /* BOOK */
 .book{position:relative;color:#fff;text-align:center;padding:160px 0;overflow:hidden}
 .book-img{position:absolute;inset:0;background:url('images/cove-beach.jpg') center 60%/cover no-repeat}
-.book::after{content:"";position:absolute;inset:0;background:rgba(6,30,33,.62)}
+.book::after{content:"";position:absolute;inset:0;background:rgba(6,30,33,.74)}
 .book .wrap{position:relative;z-index:2}
-.book .label{color:var(--brass-l)}
+.book .label{color:#f3dfb8}
 .book h2{color:#fff;font-size:clamp(2.6rem,6vw,5rem)}
-.book p{margin:0 auto 2.4rem;color:rgba(255,255,255,.88)}
+.book p{margin:0 auto 2.4rem;color:#fff}
 .book .contact{margin:1.8rem auto 0;font-size:.95rem;color:rgba(255,255,255,.85)}
 .book .contact a{color:#fff;text-underline-offset:3px}
-.policy{margin-top:2.2rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);font-weight:600}
+.policy{margin-top:2.2rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;font-weight:600}
+.policy span{display:inline-block;white-space:nowrap;margin:.25rem 0}
 .policy span:not(:last-child)::after{content:"·";margin:0 .9rem;color:var(--brass-l)}
 
 /* REVIEW */
@@ -448,11 +454,11 @@ document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return
 const featured=[...document.querySelectorAll('[data-full]')];
 featured.forEach((el,i)=>el.addEventListener('click',()=>openLB(featured.map(f=>[f.dataset.full,(f.querySelector('figcaption')?f.querySelector('figcaption').firstChild.textContent.trim():f.closest('.feature').querySelector('h3').textContent)]),i)));
 
-const HOME=[19.3147,-81.3849];
+const HOME=[19.31406,-81.38531];
 const CATS={home:{c:'#0f4c53',label:''},food:{c:'#a8834f',label:'Dining & drinks'},shop:{c:'#5f8f8c',label:'Essentials'},dest:{c:'#24262a',label:'Further afield'}};
 const PLACES=[
- {n:'Sunset Cove 118',d:'Your home. The pool, hot tub and cove beach are steps away.',lat:19.3147,lng:-81.3849,cat:'home',w:''},
- {n:'The Lazy Lizard',d:'Swim-up bar and grill, right beside the pool and 118.',lat:19.3150,lng:-81.3852,cat:'food',w:'On site'},
+ {n:'Sunset Cove 118',d:'Your home. The pool, hot tub and cove beach are steps away.',lat:19.31406,lng:-81.38531,cat:'home',w:''},
+ {n:'The Lazy Lizard',d:'Swim-up bar and grill, right beside the pool and 118.',lat:19.31432,lng:-81.38549,cat:'food',w:'On site'},
  {n:"Piccolino's",d:'Café next door for coffee, breakfast and lunch, with pizza at The Lobby.',lat:19.3146273,lng:-81.3840996,cat:'food',w:'Next door'},
  {n:'ICOA Café',d:'Breakfast, lunch and fresh pastries at Seven Mile Shops.',lat:19.3125863,lng:-81.3848773,cat:'food',w:'4 min walk'},
  {n:"Ms. Piper's Kitchen",d:'Garden restaurant with live music and Caribbean cooking.',lat:19.3170,lng:-81.3841,cat:'food',w:'4 min walk'},
