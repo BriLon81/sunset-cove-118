@@ -145,6 +145,7 @@ nav.top.solid .btn-light{background:var(--sea);border-color:var(--sea);color:#ff
 /* NEIGHBOURHOOD */
 .hood{background:var(--sand)}
 .hood-grid{display:grid;grid-template-columns:7fr 5fr;gap:40px;margin-top:56px;align-items:start}
+#map .leaflet-tile-pane{filter:grayscale(.55) sepia(.12) contrast(.92) brightness(1.04)}
 #map{height:620px;background:var(--sea-l);z-index:1;overflow:hidden;position:relative}
 .map-note{position:absolute;inset:auto 16px 16px 16px;z-index:500;background:rgba(251,249,245,.95);padding:12px 16px;font-size:.85rem;color:var(--text)}
 .poi-list{padding-right:6px}
@@ -472,7 +473,7 @@ let map=null;const markers=[];
 try{
   let tileErrs=0,noted=false;
   map=L.map('map',{center:HOME,zoom:16,scrollWheelZoom:false});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'})
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'})
    .on('tileerror',()=>{if(++tileErrs>4&&!noted){noted=true;const n=document.createElement('div');n.className='map-note';n.textContent='The street map could not load here. The places and walking times are listed alongside.';document.getElementById('map').appendChild(n);}})
    .addTo(map);
 }catch(e){document.getElementById('map').innerHTML='<p style="padding:28px">The map is unavailable right now. The places are listed alongside.</p>';}
